@@ -1,7 +1,11 @@
 <?php
 
 
-Route::get('/productos', 'ProductosController@index');
+Route::get('/productos/nuevo', 'ProductosController@create');
+
+//Route::get('/productos/index', 'ProductosController@index')->name('productosindex');
+
+Route::post('/productosAgregar', 'ProductosController@store')->name('productosAgregar');
 
 Route::get('/', function () {
     return view('welcome');
@@ -10,3 +14,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/addProductos', 'ProductosController@addProductos');
