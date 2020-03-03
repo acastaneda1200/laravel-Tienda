@@ -13,15 +13,18 @@
                         <div class="panel-body">
                                 <div class="form-group col-md-4">
                                         <label for="exampleInputPassword1">Nombre</label>
-                                        <input type="text" name="nombre" class="form-control" id="exampleInputPassword1">
+                                <input type="text" name="nombre" value="{{old('nombre')}}" class="form-control" id="exampleInputPassword1">
+                                        {!!$errors->first('nombre', '<span class=error>:message</span>')!!}
                                 </div>
                                 <div class="form-group col-md-4">
                                         <label for="exampleInputPassword1">Descripcion</label>
-                                        <input type="text" name="descripcion" class="form-control" id="exampleInputPassword1">
+                                        <input type="text" name="descripcion" value="{{old('descripcion')}}" class="form-control" id="exampleInputPassword1">
+                                        {!!$errors->first('descripcion', '<span class=error>:message</span>')!!}
                                 </div>
                                 <div class="form-group col-md-2">
                                         <label for="exampleInputPassword1">Cantidad</label>
-                                        <input type="number" name="cantidad" class="form-control" id="exampleInputPassword1">
+                                        <input type="number" name="cantidad" value="{{old('cantidad')}}" class="form-control" id="exampleInputPassword1">
+                                        {!!$errors->first('cantidad', '<span class=error>:message</span>')!!}
                                 </div>
                                 <input type="hidden" name="usuario" value="{{ Auth::user()->id }}">
 
