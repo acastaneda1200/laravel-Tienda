@@ -12,6 +12,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .error{
+            color:red;
+        }
+
+    </style>
+    <!--<link href="node_modules/css/fontawesome.min.css" rel="stylesheet">-->
 </head>
 <body>
     <div id="app">
