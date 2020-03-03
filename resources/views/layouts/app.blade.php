@@ -48,9 +48,16 @@
                     @if (Auth::user())
                         <li>
                            <a class="" href="{{ url('/productos/nuevo') }}">
-                             Mantenimiento
+                             Mantener Producto
                            </a>
+                           
                          </li>
+                         <li>
+                            <a class="" href="{{ url('/productos/nuevo') }}">
+                              Mantener Categorias
+                            </a>
+                            
+                          </li>
                      @endif
                     </ul>
 
