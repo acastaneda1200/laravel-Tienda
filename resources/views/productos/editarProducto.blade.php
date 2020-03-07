@@ -30,9 +30,10 @@
                         <label for="exampleInputPassword1">Estado</label>
                         <select class="form-control cboEstado" name="estado" id="">
                                 @foreach ($estado as $item)
-                        <option value="{{$item['ID']}}">{{$item['DESCRIPCION']}}</option>
-                      
-                                @endforeach
+                        <option value="{{$item['ID']}}"
+                        @if($producto->estado == $item['ID']) selected @endif
+                        >{{$item['DESCRIPCION']}}</option>
+                        @endforeach
 
                             
 

@@ -13,9 +13,7 @@
     src="https://code.jquery.com/jquery-3.4.1.slim.js"
     integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
     crossorigin="anonymous"></script>
-    <script src="/node_modules/jquery-confirm/jquery-confirm.min.js"></script>
-
-    <link href="/node_modules/jquery-confirm/jquery-confirm.min.css" rel="stylesheet">
+ 
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -107,6 +105,10 @@
     </div>
 
     <!-- Scripts -->
+    
     <script src="{{ asset('js/app.js') }}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+   
 </body>
 </html>

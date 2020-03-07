@@ -44,23 +44,48 @@
 
 <script>
 $(function() {
-  $('.cboEstado').on('change', function(){
-         var estado = $(this).val()
-         var idProducto = $(this).data("id")
-        $.ajax({
-            url: "{{route('updateEstado')}}",
-            method: 'POST',
-            data : {
-                "_token": "{{ csrf_token() }}",
-                    estado : estado,
-                    idProducto, idProducto}     
-        }).done(function (data) {
-               alert('Se realizaron los cambios')
-            })
+        $('.cboEstado').on('change', function () {
+	var estado = $(this).val()
+	var idProducto = $(this).data("id")
+	$.confirm({
+		title: 'Alerta!',
+                content: 'Esta seguro de guardar los cambios',
+                type: 'green',  
+                                typeAnimated: true, 
+		buttons: {
+			confirmar: {
+                                btnClass: 'btn-success',
+                                text: 'confirmar',  
+                                        
+                                action: function(){
+                                        $.ajax({
+					url: "{{route('updateEstado')}}",
+					method: 'POST',
+					data: {
+						"_token": "{{ csrf_token() }}",
+						estado: estado,
+						idProducto,
+						idProducto
+					}
+				}).done(function (data) {
+					
+				})
+                                }           
 
-  })
-  
-});     
+
+                        },
+                        cancelar: function () {
+
+			}
+
+		}
+	});
+
+
+});
+      
+
+});  
 </script>      
             
 @endsection
