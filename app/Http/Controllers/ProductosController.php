@@ -30,9 +30,12 @@ class ProductosController extends Controller
         $productos = DB::table('productos AS p')->select("p.id as idProducto", "p.nombre", "p.descripcion", "p.cantidad", "p.estado", "u.nombre as vendedor")
         ->join("users AS u", "u.id", "=", "p.id_vendedor")->get();
 
-       
+        $estado = array(
+            array("ID" => "1", "DESCRIPCION" => "Activo"),
+            array("ID" => "0", "DESCRIPCION" => "Inactivo")
+        );
         
-        return view ("productos.index", compact("productos"));
+        return view ("productos.index", compact("productos", "estado"));
     }
 
     /**
@@ -73,7 +76,19 @@ class ProductosController extends Controller
     {
         $producto = DB::table('productos')->where('id', $id)->first();
 
-       return view("productos.editarProducto", compact('producto'));
+        
+
+         $estado = array(
+            array("ID" => "1", "DESCRIPCION" => "Activo"),
+            array("ID" => "0", "DESCRIPCION" => "Inactivo")
+        );
+
+       
+        
+      
+      
+
+       return view("productos.editarProducto", compact('producto', 'estado'));
     }
 
     /**
@@ -95,12 +110,15 @@ class ProductosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
+
+   
     {
+       
         DB::table('productos')->where('id', $id)->update([
             "nombre" => $request->input("nombre"),
             "descripcion" => $request->input("descripcion"),
             "cantidad" => $request->input("cantidad"),
-            
+            "estado" => $request->input("estado"),
             "id_vendedor" => $request->input("usuario"),
             "updated_at" => Carbon::now()
         ]);
@@ -119,5 +137,18 @@ class ProductosController extends Controller
 
         DB::table('productos')->where('id', $id)->delete();
         return redirect()->route("productosindex");
+    }
+
+    public function updateEstado(){
+
+         $idProducto = $_POST['idProducto'];
+
+            DB::table('productos')->where('id', $idProducto)->update([
+                "estado" => $_POST['estado']
+            ]);
+
+            return redirect()->route("productosindex");
+
+
     }
 }

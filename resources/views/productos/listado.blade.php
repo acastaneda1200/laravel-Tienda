@@ -18,14 +18,18 @@
             <td>{{$producto->nombre}}</td>
             <td>{{$producto->descripcion}}</td>
             <td>{{$producto->cantidad}}</td>
-
-            @if ($producto->estado == '0')
-              <td>Inactivo</td>
-            
-            @else
-              <td>Activo</td>
-               
-            @endif
+            <td>
+              <div class="form-group col-md-9">
+                
+              <select class="form-control cboEstado" data-id="{{$producto->idProducto}}" name="estado" id="">
+                        @foreach ($estado as $item)
+                        <option value="{{$item['ID']}}"
+                        @if($producto->estado == $item['ID']) selected @endif
+                        >{{$item['DESCRIPCION']}}</option>
+                        @endforeach
+                </select>
+            </div>
+            </td>
             <td>{{$producto->vendedor}}</td>
             <td class="btn btn-group">
             <a href="{{route('getProducto', $producto->idProducto)}}" title="Editar"  class="btn btn-primary btnEditar">

@@ -26,6 +26,7 @@
                                         <input type="number" name="cantidad" value="{{old('cantidad')}}" class="form-control" id="exampleInputPassword1">
                                         {!!$errors->first('cantidad', '<span class=error>:message</span>')!!}
                                 </div>
+                           
                                 <input type="hidden" name="usuario" value="{{ Auth::user()->id }}">
 
                                 <div class="col-md-8 ">
@@ -41,7 +42,26 @@
 </div>
 </div>
 
-         
+<script>
+$(function() {
+  $('.cboEstado').on('change', function(){
+         var estado = $(this).val()
+         var idProducto = $(this).data("id")
+        $.ajax({
+            url: "{{route('updateEstado')}}",
+            method: 'POST',
+            data : {
+                "_token": "{{ csrf_token() }}",
+                    estado : estado,
+                    idProducto, idProducto}     
+        }).done(function (data) {
+               alert('Se realizaron los cambios')
+            })
+
+  })
+  
+});     
+</script>      
             
 @endsection
 

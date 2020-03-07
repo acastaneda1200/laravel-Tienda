@@ -12,6 +12,8 @@ Route::get('/getProducto/{id}', 'ProductosController@show')->name('getProducto')
 Route::put('/getProducto/{id}/edit', 'ProductosController@update')->name('editarProducto');
 Route::delete('/getProducto/{id}/delete', 'ProductosController@destroy')->name('deleteProducto');
 
+Route::post('/updateEstado', 'ProductosController@updateEstado')->name('updateEstado');
+
 Route::get('/', function () {
     return view('welcome');
 });

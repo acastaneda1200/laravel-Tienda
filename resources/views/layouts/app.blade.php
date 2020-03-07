@@ -9,10 +9,18 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.js"
+    integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+    crossorigin="anonymous"></script>
+    <script src="/node_modules/jquery-confirm/jquery-confirm.min.js"></script>
+
+    <link href="/node_modules/jquery-confirm/jquery-confirm.min.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
     <style>
         .error{
             color:red;
@@ -48,9 +56,16 @@
                     @if (Auth::user())
                         <li>
                            <a class="" href="{{ url('/productos/nuevo') }}">
-                             Mantenimiento
+                             Mantener Producto
                            </a>
+                           
                          </li>
+                         <li>
+                            <a class="" href="{{ url('/productos/nuevo') }}">
+                              Mantener Categorias
+                            </a>
+                            
+                          </li>
                      @endif
                     </ul>
 

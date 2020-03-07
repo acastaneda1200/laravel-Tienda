@@ -11,12 +11,12 @@
         <div class="panel panel-default">
             <div class="panel-heading">Editar Producto</div>
             <div class="panel-body">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                             <label for="exampleInputPassword1">Nombre</label>
                     <input type="text" name="nombre" value="{{$producto->nombre}}" class="form-control" id="">
                             {!!$errors->first('nombre', '<span class=error>:message</span>')!!}
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                             <label for="exampleInputPassword1">Descripcion</label>
                             <input type="text" name="descripcion" value="{{$producto->descripcion}}" class="form-control" id="">
                             {!!$errors->first('descripcion', '<span class=error>:message</span>')!!}
@@ -26,6 +26,23 @@
                             <input type="number" name="cantidad" value="{{$producto->cantidad}}" class="form-control" id="">
                             {!!$errors->first('cantidad', '<span class=error>:message</span>')!!}
                     </div>
+                    <div class="form-group col-md-3">
+                        <label for="exampleInputPassword1">Estado</label>
+                        <select class="form-control cboEstado" name="estado" id="">
+                                @foreach ($estado as $item)
+                        <option value="{{$item['ID']}}">{{$item['DESCRIPCION']}}</option>
+                      
+                                @endforeach
+
+                            
+
+                               
+                     
+        
+                        </select>
+                      
+                    </div>
+
                     <input type="hidden" name="usuario" value="{{ Auth::user()->id }}">
 
                     <div class="col-md-8 ">
